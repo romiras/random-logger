@@ -1,4 +1,14 @@
 #!/bin/sh
+
+if [ -n "$PRINT_ENV_NAMES" ]
+then
+   # Print values of env. variables (tail of values)
+   for e in $(echo $PRINT_ENV_NAMES)
+   do
+      echo $e = $(printenv "$e" | tail -c 8)
+   done
+fi
+
 n=-1
 c=0
 if [ -n "$3" ]
